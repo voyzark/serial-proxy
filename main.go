@@ -22,19 +22,19 @@ var CFG_OUTPUT_FILE string
 var CFG_LOG_CONTROL_FLOW bool
 
 func init() {
-	pflag.StringVarP(&CFG_LEFT_PORT, "left-port", "l", "COM1,19200,N,8,1", "Left port definition")
+	pflag.StringVarP(&CFG_LEFT_PORT, "left-port", "l", "COM1,19200,N,8,1", "left port definition")
 	pflag.StringVar(&CFG_LEFT_PORT_LABEL, "left-label", "Left Port", "an arbitrary label for the left port, used for better distinction in the logs")
 
-	pflag.StringVarP(&CFG_RIGHT_PORT, "right-port", "r", "COM2,19200,N,8,1", "Right port definition")
+	pflag.StringVarP(&CFG_RIGHT_PORT, "right-port", "r", "COM2,19200,N,8,1", "right port definition")
 	pflag.StringVar(&CFG_RIGHT_PORT_LABEL, "right-label", "Right Port", "an arbitrary label for the left port, used for better distinction in the logs")
 
 	pflag.StringVarP(&CFG_OUTPUT_FILE, "output", "o", "", "log file. leave this emtpy to log to console only")
 
-	pflag.IntVarP(&CFG_READ_TIMEOUT, "read-timeout", "t", 100, "Read timeout in ms. Adjust this to better detect packet boundaries")
-	pflag.IntVar(&CFG_READ_BUFFER_SIZE, "read-bugger", 4096, "Read buffer size")
-	pflag.BoolVar(&CFG_LOG_CONTROL_FLOW, "log-control-flow", false, "Log control flow (CTS / DTR)")
+	pflag.IntVarP(&CFG_READ_TIMEOUT, "read-timeout", "t", 100, "read timeout in ms. Adjust this to better detect packet boundaries")
+	pflag.IntVar(&CFG_READ_BUFFER_SIZE, "read-bugger", 4096, "read buffer size")
+	pflag.BoolVar(&CFG_LOG_CONTROL_FLOW, "log-control-flow", false, "log control flow (CTS / DTR)")
 
-	helpWanted := pflag.BoolP("help", "h", false, "Show this help dialog")
+	helpWanted := pflag.BoolP("help", "h", false, "show this help dialog")
 	pflag.Parse()
 
 	if *helpWanted {
